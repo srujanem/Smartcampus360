@@ -6,37 +6,40 @@ import ChatPage from './pages/ChatPage';
 import EventsPage from './pages/EventsPage';
 import EmergencyPage from './pages/EmergencyPage';
 import AdminDashboard from './pages/AdminDashboard';
+import { ThemeProvider } from './components/ThemeProvider';
 
 export default function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/map" element={<MapPage />} />
-            <Route path="/chat" element={<ChatPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/emergency" element={<EmergencyPage />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-          </Routes>
-        </main>
-        
-        <footer className="py-12 bg-white border-t border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rounded-sm" />
+    <ThemeProvider defaultTheme="system" storageKey="smart-campus-theme">
+      <Router>
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50 transition-colors duration-300">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/map" element={<MapPage />} />
+              <Route path="/chat" element={<ChatPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/emergency" element={<EmergencyPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+            </Routes>
+          </main>
+
+          <footer className="py-12 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-sm" />
+                </div>
+                <span className="font-bold text-slate-900 dark:text-white">Smart Campus 360</span>
               </div>
-              <span className="font-bold text-slate-900">Smart Campus 360</span>
+              <p className="text-slate-500 dark:text-slate-400 text-sm">
+                © 2026 Smart Campus 360. All rights reserved.
+              </p>
             </div>
-            <p className="text-slate-500 text-sm">
-              © 2026 Smart Campus 360. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
-    </Router>
+          </footer>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
