@@ -69,16 +69,16 @@ export default function ChatPage() {
   ];
 
   return (
-    <div className="pt-20 pb-10 px-4 max-w-4xl mx-auto h-screen flex flex-col">
-      <div className="flex-1 bg-white rounded-[2.5rem] border border-slate-200 shadow-xl overflow-hidden flex flex-col">
+    <div className="pt-20 pb-10 px-4 max-w-4xl mx-auto h-screen flex flex-col transition-colors duration-300">
+      <div className="flex-1 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden flex flex-col transition-colors duration-300">
         {/* Header */}
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+        <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/50 transition-colors duration-300">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200">
+            <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 dark:shadow-blue-900/20">
               <Bot className="text-white w-6 h-6" />
             </div>
             <div>
-              <h2 className="font-bold text-slate-900">Campus Assistant</h2>
+              <h2 className="font-bold text-slate-900 dark:text-white transition-colors duration-300">Campus Assistant</h2>
               <div className="flex items-center text-[10px] text-emerald-500 font-bold uppercase tracking-widest">
                 <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-1.5 animate-pulse" />
                 Online
@@ -89,7 +89,7 @@ export default function ChatPage() {
         </div>
 
         {/* Chat Area */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/30">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/30 dark:bg-slate-900/30 transition-colors duration-300">
           {messages.map((msg) => (
             <motion.div
               key={msg.id}
@@ -101,16 +101,18 @@ export default function ChatPage() {
               )}
             >
               <div className={cn(
-                "w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0",
-                msg.sender === 'ai' ? "bg-blue-100 text-blue-600" : "bg-slate-200 text-slate-600"
+                "w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300",
+                msg.sender === 'ai'
+                  ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                  : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
               )}>
                 {msg.sender === 'ai' ? <Bot className="w-5 h-5" /> : <User className="w-5 h-5" />}
               </div>
               <div className={cn(
-                "max-w-[80%] p-4 rounded-2xl text-sm leading-relaxed shadow-sm",
+                "max-w-[80%] p-4 rounded-2xl text-sm leading-relaxed shadow-sm transition-colors duration-300",
                 msg.sender === 'ai'
-                  ? "bg-white text-slate-800 rounded-bl-none border border-slate-100"
-                  : "bg-blue-600 text-white rounded-br-none"
+                  ? "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-none border border-slate-100 dark:border-slate-700"
+                  : "bg-blue-600 dark:bg-blue-600 text-white rounded-br-none"
               )}>
                 {msg.text}
               </div>
@@ -123,26 +125,26 @@ export default function ChatPage() {
               animate={{ opacity: 1 }}
               className="flex items-center space-x-2"
             >
-              <div className="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center transition-colors duration-300">
                 <Bot className="w-5 h-5" />
               </div>
-              <div className="bg-white p-4 rounded-2xl rounded-bl-none border border-slate-100 shadow-sm flex space-x-1">
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
+              <div className="bg-white dark:bg-slate-800 p-4 rounded-2xl rounded-bl-none border border-slate-100 dark:border-slate-700 shadow-sm flex space-x-1 transition-colors duration-300">
+                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-500 rounded-full" />
+                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-500 rounded-full" />
+                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-500 rounded-full" />
               </div>
             </motion.div>
           )}
         </div>
 
         {/* Input Area */}
-        <div className="p-6 bg-white border-t border-slate-100">
+        <div className="p-6 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
           <div className="flex flex-wrap gap-2 mb-4">
             {suggestions.map(s => (
               <button
                 key={s}
                 onClick={() => setInput(s)}
-                className="px-3 py-1.5 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 text-slate-600 text-xs font-medium rounded-full border border-slate-200 transition-all"
+                className="px-3 py-1.5 bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-700 transition-all"
               >
                 {s}
               </button>
@@ -152,10 +154,15 @@ export default function ChatPage() {
             <input
               type="text"
               placeholder="Type your message..."
-              className="w-full pl-6 pr-14 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full pl-6 pr-14 py-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSend();
+                }
+              }}
             />
             <button
               onClick={handleSend}
