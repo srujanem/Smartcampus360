@@ -6,6 +6,8 @@ export interface Department {
   facilities: string[];
   timings: string;
   coordinates: { x: number; y: number };
+  status: 'open' | 'closed';
+  occupancy: number;
 }
 
 export interface CampusEvent {

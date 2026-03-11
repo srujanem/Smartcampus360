@@ -8,7 +8,9 @@ export const DEPARTMENTS: Department[] = [
     courses: ['B.Tech CSE', 'M.Tech AI', 'Ph.D. Computing'],
     facilities: ['AI Lab', 'Cloud Computing Center', 'Cyber Security Hub'],
     timings: '9:00 AM - 5:00 PM',
-    coordinates: { x: 25, y: 30 }
+    coordinates: { x: 25, y: 30 },
+    status: 'open',
+    occupancy: 65
   },
   {
     id: 'ece',
@@ -17,7 +19,9 @@ export const DEPARTMENTS: Department[] = [
     courses: ['B.Tech ECE', 'M.Tech VLSI', 'Embedded Systems'],
     facilities: ['Robotics Lab', 'Antenna Lab', 'Microprocessor Lab'],
     timings: '9:00 AM - 5:00 PM',
-    coordinates: { x: 65, y: 35 }
+    coordinates: { x: 65, y: 35 },
+    status: 'open',
+    occupancy: 40
   },
   {
     id: 'library',
@@ -26,7 +30,9 @@ export const DEPARTMENTS: Department[] = [
     courses: ['Digital Literacy', 'Research Methodology'],
     facilities: ['Digital Archive', 'Quiet Study Zone', 'Cafeteria'],
     timings: '8:00 AM - 10:00 PM',
-    coordinates: { x: 45, y: 55 }
+    coordinates: { x: 45, y: 55 },
+    status: 'open',
+    occupancy: 95
   },
   {
     id: 'auditorium',
@@ -35,7 +41,9 @@ export const DEPARTMENTS: Department[] = [
     courses: [],
     facilities: ['1000+ Seating', 'Dolby Atmos', 'Green Rooms'],
     timings: 'Event Based',
-    coordinates: { x: 80, y: 70 }
+    coordinates: { x: 80, y: 70 },
+    status: 'closed',
+    occupancy: 0
   },
   {
     id: 'admin',
@@ -44,7 +52,9 @@ export const DEPARTMENTS: Department[] = [
     courses: [],
     facilities: ['Student Records', 'Finance Desk', 'Scholarship Cell'],
     timings: '10:00 AM - 4:00 PM',
-    coordinates: { x: 20, y: 75 }
+    coordinates: { x: 20, y: 75 },
+    status: 'closed',
+    occupancy: 15
   }
 ];
 

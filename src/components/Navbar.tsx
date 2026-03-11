@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MapPin, MessageSquare, Calendar, ShieldAlert, LayoutDashboard, Menu, X, Sun, Moon } from 'lucide-react';
+import { Home, MapPin, MessageSquare, Calendar, ShieldAlert, LayoutDashboard, Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
 import { useTheme } from './ThemeProvider';
 
 const navItems = [
+  { name: 'Home', path: '/', icon: Home },
   { name: 'Map', path: '/map', icon: MapPin },
   { name: 'Chat', path: '/chat', icon: MessageSquare },
   { name: 'Events', path: '/events', icon: Calendar },
